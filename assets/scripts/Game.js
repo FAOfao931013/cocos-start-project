@@ -15,9 +15,8 @@ cc.Class({
             type: cc.Prefab
         },
 
-        //星星产生后消失时间的随机范围
+        //星星产生后的消失时间
         maxStarDuration: 0,
-        minStarDuration: 0,
 
         //地面节点，用于确定星星生成的高度
         ground: {
@@ -60,8 +59,11 @@ cc.Class({
         //将 Game 组件的实例传入星星组件
         newStar.getComponent('Star').game = this;
 
-        //重置计时器，根据消失时间范围随机取一个值
-        this.starDuration = this.minStarDuration + cc.random0To1() * (this.maxStarDuration - this.minStarDuration);
+        //重置计时器，根据得分越高消失的越快
+        this.starDuration = this.maxStarDuration - this.score / 10;
+        if (this.starDuration < 2) {
+            this.starDuration = 2;
+        }
         this.timer = 0;
     },
 
@@ -97,10 +99,11 @@ cc.Class({
         this.timer = 0;
         this.starDuration = 0;
 
+        //初始化分数
+        this.score = 0;
+
         // 生成一个新的星星
         this.spawnNewStar();
-
-        this.score = 0;
     },
 
     update: function (dt) {

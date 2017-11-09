@@ -16,10 +16,10 @@ cc.Class({
     },
 
     onPicked: function () {
-        //当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
-        this.game.spawnNewStar();
         //得分
         this.game.gainScore();
+        //当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
+        this.game.spawnNewStar();
         //然后销毁当前星星节点
         this.node.destroy();
     },
