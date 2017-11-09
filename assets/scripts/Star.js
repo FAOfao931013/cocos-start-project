@@ -1,3 +1,4 @@
+/*eslint-disable */
 cc.Class({
     extends: cc.Component,
 

@@ -1,9 +1,16 @@
+/*eslint-disable */
 cc.Class({
     extends: cc.Component,
 
     properties: {
         //这个属性引用了星星预制资源
         starPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+
+        //这个属性引用了礼物预制资源
+        giftPrefab: {
             default: null,
             type: cc.Prefab
         },
@@ -47,7 +54,7 @@ cc.Class({
         //使用给定的模板在场景中生成一个新节点
         var newStar = cc.instantiate(this.starPrefab);
         //将新增的节点添加到 Canvas 节点下面
-        this.node.addChild(newStar);
+        this.canvas.addChild(newStar);
         //为星星设置一个随机位置
         newStar.setPosition(this.getNewStarPosition());
         //将 Game 组件的实例传入星星组件

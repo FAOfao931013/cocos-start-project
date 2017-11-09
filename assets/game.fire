@@ -505,8 +505,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 480,
-      "y": 320
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -525,6 +525,9 @@
     "_enabled": true,
     "starPrefab": {
       "__uuid__": "ff0e495d-e160-4b9e-a82f-a556ed5417bd"
+    },
+    "giftPrefab": {
+      "__uuid__": "0a111f8f-36c4-4520-82df-b1767c7b6773"
     },
     "maxStarDuration": 3,
     "minStarDuration": 5,
