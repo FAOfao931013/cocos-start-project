@@ -62,7 +62,6 @@ cc.Class({
         if (this.starPool.size() > 0) {
             newStar = this.starPool.get();
         } else {
-            console.log(1);
             newStar = cc.instantiate(this.starPrefab);
         }
 
