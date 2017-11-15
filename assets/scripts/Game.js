@@ -47,6 +47,12 @@ cc.Class({
             default: null,
             url: cc.AudioClip
         },
+
+        //分数节点
+        scoreNode: {
+            default: null,
+            type: cc.Node,
+        }
     },
 
     spawnNewStar: function () {
@@ -94,11 +100,7 @@ cc.Class({
     },
 
     gainScore: function () {
-        this.score += 1;
-        //更新 scoreDisplay Label 的文字
-        this.scoreDisplay.string = 'Score: ' + this.score.toString();
-        //播放得分音效
-        cc.audioEngine.playEffect(this.scoreAudio, false);
+        this.score = this.scoreNode.gainScore();
         //得分后回收对象
         this.starPool.put(this.newStar);
     },
@@ -109,18 +111,22 @@ cc.Class({
     },
 
     onLoad: function () {
-        // 获取地平面的 y 轴坐标
+        //获取地平面的 y 轴坐标
         this.groundY = this.ground.y + this.ground.height / 2;
 
-        // 初始化计时器
+        //初始化计时器
         this.timer = 0;
         this.starDuration = 0;
 
         //初始化分数
         this.score = 0;
 
-        // 生成一个新的星星
+        //生成一个新的星星
         this.spawnNewStar();
+
+        //初始化得分节点
+        this.scoreNode = this.scoreNode.getComponent('Score');
+        this.scoreNode.init(this);
     },
 
     update: function (dt) {
