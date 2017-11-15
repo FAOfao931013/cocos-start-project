@@ -49,7 +49,7 @@ cc.Class({
         }
     },
 
-    spawnNewStar: function () {
+    spawnNewStar() {
         //使用给定的模板生成对象池并使用
         this.starPool = new cc.NodePool();
 
@@ -82,29 +82,37 @@ cc.Class({
         this.timer = 0;
     },
 
-    getNewStarPosition: function () {
+    getNewStarPosition() {
         var randX = 0;
         //根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
-        var randY = (Math.random() * 1 + 1) * this.player.getComponent('Player').jumpHeight / 2 + this.player.getComponent('Player').beginY;
+        var randY = (Math.random() + 1) * this.player.getComponent('Player').jumpHeight / 2 + this.player.getComponent('Player').beginY;
         //根据屏幕宽度，随机得到一个星星 x 坐标
-        var maxX = this.canvas.width / 2;
+        var maxX = this.canvas.width / 2 - 40;
         randX = cc.randomMinus1To1() * maxX;
+        //防止下一颗生成的星星离玩家过近
+        if (Math.abs(randX - this.player.x) < this.newStar.getComponent('Star').pickRadius) {
+            if (randX < 0) {
+                randX -= 50;
+            } else {
+                randX += 50;
+            }
+        }
         //返回星星坐标
         return cc.p(randX, randY);
     },
 
-    gainScore: function () {
+    gainScore() {
         this.score = this.scoreNode.gainScore();
         //得分后回收对象
         this.starPool.put(this.newStar);
     },
 
-    gameOver: function () {
+    gameOver() {
         this.player.stopAllActions(); //停止 player 节点的跳跃动作
         cc.director.loadScene('game');
     },
 
-    onLoad: function () {
+    onLoad() {
         //初始化计时器
         this.timer = 0;
         this.starDuration = 0;
@@ -120,7 +128,7 @@ cc.Class({
         this.scoreNode.init(this);
     },
 
-    update: function (dt) {
+    update(dt) {
         //每帧更新计时器，超过限度还没有生成新的星星
         //就会调用游戏失败逻辑
         if (this.timer > this.starDuration) {
