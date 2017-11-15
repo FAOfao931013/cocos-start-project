@@ -18,12 +18,6 @@ cc.Class({
         //星星产生后的消失时间
         maxStarDuration: 0,
 
-        //地面节点，用于确定星星生成的高度
-        ground: {
-            default: null,
-            type: cc.Node
-        },
-
         //player 节点，用于获取主角弹跳的高度，和控制主角行动开关
         player: {
             default: null,
@@ -91,7 +85,7 @@ cc.Class({
     getNewStarPosition: function () {
         var randX = 0;
         //根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
-        var randY = this.groundY + cc.random0To1() * this.player.getComponent('Player').jumpHeight + 50;
+        var randY = (Math.random() * 1 + 1) * this.player.getComponent('Player').jumpHeight / 2 + this.player.getComponent('Player').beginY;
         //根据屏幕宽度，随机得到一个星星 x 坐标
         var maxX = this.canvas.width / 2;
         randX = cc.randomMinus1To1() * maxX;
@@ -111,9 +105,6 @@ cc.Class({
     },
 
     onLoad: function () {
-        //获取地平面的 y 轴坐标
-        this.groundY = this.ground.y + this.ground.height / 2;
-
         //初始化计时器
         this.timer = 0;
         this.starDuration = 0;

@@ -12,6 +12,9 @@ cc.Class({
         // 加速度
         accel: 0,
 
+        //初始Y坐标
+        beginY: -320,
+
         jumpAudio: {
             default: null,
             url: cc.AudioClip
