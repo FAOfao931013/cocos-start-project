@@ -50,15 +50,9 @@ cc.Class({
     },
 
     spawnNewStar() {
-        //使用给定的模板生成对象池并使用
-        this.starPool = new cc.NodePool();
-
-        let star = cc.instantiate(this.starPrefab);
-
-        this.starPool.put(star);
-        
+        //使用对象池中资源
         let newStar;
-        
+    
         if (this.starPool.size() > 0) {
             newStar = this.starPool.get();
         } else {
@@ -66,7 +60,7 @@ cc.Class({
         }
 
         this.newStar = newStar;
-
+        
         //将新增的节点添加到 Canvas 节点下面
         this.canvas.addChild(newStar);
         //为星星设置一个随机位置
@@ -103,8 +97,6 @@ cc.Class({
 
     gainScore() {
         this.score = this.scoreNode.gainScore();
-        //得分后回收对象
-        this.starPool.put(this.newStar);
     },
 
     gameOver() {
@@ -120,6 +112,11 @@ cc.Class({
         //初始化分数
         this.score = 0;
 
+        //使用给定的模板生成对象池
+        this.starPool = new cc.NodePool();
+        let star = cc.instantiate(this.starPrefab);
+        this.starPool.put(star);
+    
         //生成一个新的星星
         this.spawnNewStar();
 
