@@ -30,18 +30,6 @@ cc.Class({
             type: cc.Node
         },
 
-        //得分文字节点
-        scoreDisplay: {
-            default: null,
-            type: cc.Label
-        },
-
-        //得分音效资源
-        scoreAudio: {
-            default: null,
-            url: cc.AudioClip
-        },
-
         //分数节点
         scoreNode: {
             default: null,

@@ -15,18 +15,17 @@ cc.Class({
         //初始Y坐标
         beginY: -320,
 
-        jumpAudio: {
-            default: null,
-            url: cc.AudioClip
-        },
-
+        //画布节点
         canvas: {
             default: null,
             type: cc.Node,
-        }
+        },
+
+        //音效节点
+        sound: cc.Node,
     },
 
-    setJumpAction: function () {
+    setJumpAction() {
         // 跳跃上升
         var jumpUp = cc.moveBy(this.jumpDuration, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
         // 下落
@@ -37,9 +36,8 @@ cc.Class({
         return cc.repeatForever(cc.sequence(jumpUp, jumpDown, callback));
     },
 
-    playJumpSound: function () {
-        // 调用声音引擎播放声音
-        cc.audioEngine.playEffect(this.jumpAudio, false);
+    playJumpSound() {
+        this.sound.getComponent('Sound').playJumpSound();
     },
 
     setInputControl: function () {

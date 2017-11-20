@@ -3,11 +3,8 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        //得分音效资源
-        scoreAudio: {
-            default: null,
-            url: cc.AudioClip
-        },
+        //音效节点
+        sound: cc.Node,
     },
 
     init(game) {
@@ -19,9 +16,13 @@ cc.Class({
         //获得自身的Label组件
         this.node.getComponent(cc.Label).string = 'Score: ' + this.score;
         //播放得分音效
-        cc.audioEngine.playEffect(this.scoreAudio, false);
+        this.playScoreAudio();
 
         return this.score;
+    },
+
+    playScoreAudio() {
+        this.sound.getComponent('Sound').playScoreAudio();
     },
 
     // use this for initialization

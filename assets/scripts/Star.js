@@ -7,15 +7,15 @@ cc.Class({
         pickRadius: 0
     },
 
-    getPlayerDistance: function () {
+    getPlayerDistance() {
         //根据 player 节点位置判断距离
         var playerPos = this.game.player.getPosition();
         //根据两点位置计算两点之间距离
         var dist = cc.pDistance(this.node.position, playerPos);
-        return dist;
+        return dist; 
     },
 
-    onPicked: function () {
+    onPicked() {
         //得分
         this.game.gainScore();
         //当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
@@ -24,11 +24,11 @@ cc.Class({
         this.game.starPool.put(this.node);
     },
 
-    onLoad: function () {
+    onLoad() {
 
     },
 
-    update: function (dt) {
+    update(dt) {
         if (this.getPlayerDistance() < this.pickRadius) {
             // 调用收集行为
             this.onPicked();
