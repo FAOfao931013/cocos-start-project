@@ -31,7 +31,7 @@ cc.Class({
         scoreNode: cc.Node,
 
         //得分面板节点
-        finalNode: cc.Node,
+        scoreboard: cc.Node,
     },
 
     spawnNewStar() {
@@ -93,7 +93,7 @@ cc.Class({
         //回收当前资源
         this.starPool.put(this.newStar);
         
-        this.finalNode.x = 0;
+        this.scoreboard.y = 0;
         // cc.director.loadScene('game');
     },
 
