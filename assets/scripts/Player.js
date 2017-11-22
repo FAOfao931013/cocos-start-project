@@ -40,10 +40,10 @@ cc.Class({
         this.sound.getComponent('Sound').playJumpSound();
     },
 
-    setInputControl: function () {
-        var self = this;
+    setInputControl() {
+        let self = this;
         // 添加键盘事件监听
-        cc.eventManager.addListener({
+        this.keyboardListener = cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
             // 有按键按下时，判断是否是我们指定的方向控制键，并设置向对应方向加速
             onKeyPressed: function (keyCode, event) {
@@ -72,7 +72,32 @@ cc.Class({
         }, self.node);
     },
 
-    update: function (dt) {
+    //移除当前监听事件
+    removeKeyboardListener() {
+        cc.eventManager.removeListener(this.keyboardListener);
+    },
+
+    //隐藏
+    hide() {
+        this.node.active = false;
+    },
+
+    onLoad() {
+        // 初始化跳跃动作
+        this.jumpAction = this.setJumpAction();
+        this.node.runAction(this.jumpAction);
+
+        // 加速度方向开关
+        this.accLeft = false;
+        this.accRight = false;
+        // 主角当前水平方向速度
+        this.xSpeed = 0;
+
+        // 初始化键盘输入监听
+        this.setInputControl();
+    },
+
+    update(dt) {
         //根据当前加速度方向每帧更新速度
         if (this.accLeft) {
             this.xSpeed -= this.accel * dt;
@@ -96,24 +121,5 @@ cc.Class({
         if (this.node.x < (-this.canvas.width / 2)) {
             this.node.x = this.canvas.width / 2;
         }
-    },
-
-    onLoad: function() {
-        // 初始化跳跃动作
-        this.jumpAction = this.setJumpAction();
-        this.node.runAction(this.jumpAction);
-
-        // 加速度方向开关
-        this.accLeft = false;
-        this.accRight = false;
-        // 主角当前水平方向速度
-        this.xSpeed = 0;
-
-        // 初始化键盘输入监听
-        this.setInputControl();
-    },
-
-    // update: function (dt) {
-
-    // },
+    }
 });

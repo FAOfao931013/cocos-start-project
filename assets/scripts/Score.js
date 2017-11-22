@@ -5,6 +5,9 @@ cc.Class({
     properties: {
         //音效节点
         sound: cc.Node,
+
+        //得到的分数
+        score: 0
     },
 
     init(game) {
@@ -17,8 +20,6 @@ cc.Class({
         this.node.getComponent(cc.Label).string = 'Score: ' + this.score;
         //播放得分音效
         this.playScoreAudio();
-
-        return this.score;
     },
 
     playScoreAudio() {
@@ -27,7 +28,7 @@ cc.Class({
 
     // use this for initialization
     onLoad() {
-        this.score = 0;
+
     },
 
     // called every frame, uncomment this function to activate update callback

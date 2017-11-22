@@ -25,16 +25,13 @@ cc.Class({
         },
 
         //canvas根节点
-        canvas: {
-            default: null,
-            type: cc.Node
-        },
+        canvas: cc.Node,
 
         //分数节点
-        scoreNode: {
-            default: null,
-            type: cc.Node,
-        }
+        scoreNode: cc.Node,
+
+        //得分面板节点
+        finalNode: cc.Node,
     },
 
     spawnNewStar() {
@@ -57,7 +54,7 @@ cc.Class({
         newStar.getComponent('Star').game = this;
 
         //重置计时器，根据得分越高消失的越快
-        this.starDuration = this.maxStarDuration - this.score / 10;
+        this.starDuration = this.maxStarDuration - this.scoreNode.score / 10;
         if (this.starDuration < 2) {
             this.starDuration = 2;
         }
@@ -84,12 +81,20 @@ cc.Class({
     },
 
     gainScore() {
-        this.score = this.scoreNode.gainScore();
+        this.scoreNode.gainScore();
     },
 
     gameOver() {
-        this.player.stopAllActions(); //停止 player 节点的跳跃动作
-        cc.director.loadScene('game');
+        //停止 player 节点所有活动并隐藏
+        this.player.stopAllActions(); 
+        this.player.getComponent('Player').removeKeyboardListener();
+        this.player.getComponent('Player').hide();
+
+        //回收当前资源
+        this.starPool.put(this.newStar);
+        
+        this.finalNode.x = 0;
+        // cc.director.loadScene('game');
     },
 
     onLoad() {
@@ -97,8 +102,9 @@ cc.Class({
         this.timer = 0;
         this.starDuration = 0;
 
-        //初始化分数
-        this.score = 0;
+        //初始化得分节点
+        this.scoreNode = this.scoreNode.getComponent('Score');
+        this.scoreNode.init(this);
 
         //使用给定的模板生成对象池
         this.starPool = new cc.NodePool();
@@ -107,10 +113,6 @@ cc.Class({
 
         //生成一个新的星星
         this.spawnNewStar();
-
-        //初始化得分节点
-        this.scoreNode = this.scoreNode.getComponent('Score');
-        this.scoreNode.init(this);
     },
 
     update(dt) {
