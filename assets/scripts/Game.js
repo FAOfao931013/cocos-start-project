@@ -92,8 +92,11 @@ cc.Class({
 
         //回收当前资源
         this.starPool.put(this.newStar);
+
+        //游戏结束标识
+        this.over = true;
         
-        this.scoreboard.y = 0;
+        this.scoreboard.getComponent('Final').moveToCenter();
         // cc.director.loadScene('game');
     },
 
@@ -101,6 +104,7 @@ cc.Class({
         //初始化计时器
         this.timer = 0;
         this.starDuration = 0;
+        this.over = false;
 
         //初始化得分节点
         this.scoreNode = this.scoreNode.getComponent('Score');
@@ -116,12 +120,18 @@ cc.Class({
     },
 
     update(dt) {
+        //防止重复失败
+        if (this.over) {
+            return;
+        }
+
         //每帧更新计时器，超过限度还没有生成新的星星
         //就会调用游戏失败逻辑
         if (this.timer > this.starDuration) {
             this.gameOver();
             return;
         }
+        
         this.timer += dt;
     },
 });
