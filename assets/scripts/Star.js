@@ -9,7 +9,7 @@ cc.Class({
 
     getPlayerDistance() {
         //根据 player 节点位置判断距离
-        var playerPos = this.game.player.getPosition();
+        var playerPos = this.collectionGroup.player.getPosition();
         //根据两点位置计算两点之间距离
         var dist = cc.pDistance(this.node.position, playerPos);
         return dist; 
@@ -17,11 +17,11 @@ cc.Class({
 
     onPicked() {
         //得分
-        this.game.gainScore();
-        //当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
-        this.game.spawnNewStar();
+        this.collectionGroup.gainScore();
         //回收当前资源
-        this.game.starPool.put(this.node);
+        this.collectionGroup.putBackStar(this.node);
+        //当星星被收集时，生成一个新的星星
+        this.collectionGroup.spawnNewStar();
     },
 
     onLoad() {
@@ -34,10 +34,5 @@ cc.Class({
             this.onPicked();
             return;
         }
-
-        //根据 Game 脚本中的计时器更新星星的透明度
-        var opacityRatio = 1 - this.game.timer / this.game.starDuration;
-        var minOpacity = 50;
-        this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
     },
 });

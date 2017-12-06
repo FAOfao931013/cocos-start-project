@@ -10,9 +10,9 @@ cc.Class({
         score: 0
     },
 
-    init(game) {
-        this.game = game;
-    },
+    // init(game) {
+    //     this.game = game;
+    // },
 
     gainScore() {
         this.score += 1;
