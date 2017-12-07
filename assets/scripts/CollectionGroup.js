@@ -59,6 +59,8 @@ cc.Class({
         newStar.setPosition(this.getNewStarPosition(newStar));
 
         newStar.getComponent('Star').collectionGroup = this;
+
+        this.newStar = newStar;
     },
 
     getNewStarPosition(newStar) {
@@ -80,7 +82,7 @@ cc.Class({
         return cc.p(randX, randY);
     },
 
-    putBackStar(node) {
+    putBackStar(node = this.newStar) {
         G.common.putBackNode(this, node);
     },
 

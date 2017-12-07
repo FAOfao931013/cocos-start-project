@@ -7,9 +7,13 @@ cc.Class({
             default: 60,
             type: cc.Integer
         },
+
+        game: cc.Node
     },
 
-    onLoad () {},
+    onLoad () {
+        this.game = this.game.getComponent('Game');
+    },
 
     start () {
         this.node.getComponent(cc.Label).string = `倒计时：${this.duration}S`;
@@ -21,6 +25,8 @@ cc.Class({
         this.callBack = function () {
             if (this.duration == 0) {
                 this.unschedule(this.callBack);
+
+                this.game.gameOver();
                 return;
             }
 

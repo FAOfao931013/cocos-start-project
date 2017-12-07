@@ -46,6 +46,7 @@ cc.Class({
         this.over = true;
         
         this.scoreboard.getComponent('Final').moveToCenter();
+        this.collectionGroup.getComponent('CollectionGroup').putBackStar();
         // cc.director.loadScene('game');
     },
 

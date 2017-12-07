@@ -18,10 +18,14 @@ cc.Class({
     onPicked() {
         //得分
         this.collectionGroup.gainScore();
-        //回收当前资源
-        this.collectionGroup.putBackStar(this.node);
+        this.backNode();
         //当星星被收集时，生成一个新的星星
         this.collectionGroup.spawnNewStar();
+    },
+
+    backNode() {
+        //回收当前资源
+        this.collectionGroup.putBackStar(this.node);
     },
 
     onLoad() {
