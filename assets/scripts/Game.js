@@ -47,7 +47,11 @@ cc.Class({
         
         this.scoreboard.getComponent('Final').moveToCenter();
         this.collectionGroup.getComponent('CollectionGroup').putBackStar();
-        // cc.director.loadScene('game');
+        
+    },
+
+    restart() {
+        cc.director.loadScene('start');
     },
 
     onLoad() {
