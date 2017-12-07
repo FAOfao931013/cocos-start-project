@@ -6,8 +6,7 @@ cc.Class({
 
     },
 
-    // use this for initialization
-    onLoad: function () {
+    onLoad() {
         G.common = this;
     },
 
@@ -41,7 +40,6 @@ cc.Class({
         that[poolName].put(node);
     },
 
-    // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 
     // },

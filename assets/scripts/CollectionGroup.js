@@ -86,7 +86,6 @@ cc.Class({
         G.common.putBackNode(this, node);
     },
 
-    // use this for initialization
     onLoad() {
         G.common.initPool(this, this.star);
         G.common.initPool(this, this.gift);
@@ -94,7 +93,6 @@ cc.Class({
         this.scoreNode = this.scoreNode.getComponent('Score');
     },
 
-    // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 
     // },
