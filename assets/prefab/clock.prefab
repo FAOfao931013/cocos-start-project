@@ -40,7 +40,7 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 1
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -97,7 +97,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "pickRadius": 0
+    "pickRadius": 60
   },
   {
     "__type__": "cc.PrefabInfo",

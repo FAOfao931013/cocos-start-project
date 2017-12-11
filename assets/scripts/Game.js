@@ -56,6 +56,8 @@ cc.Class({
 
     onLoad() {
         this.collectionGroup.getComponent('CollectionGroup').spawnNewStar();
+
+        this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();            
     },
 
     start() {
