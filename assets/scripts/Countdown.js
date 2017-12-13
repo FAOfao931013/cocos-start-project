@@ -11,16 +11,6 @@ cc.Class({
         game: cc.Node
     },
 
-    onLoad () {
-        this.game = this.game.getComponent('Game');
-    },
-
-    start () {
-        this.node.getComponent(cc.Label).string = `倒计时：${this.duration}S`;
-
-        this.upString();
-    },
-
     upString() {
         this.callBack = function () {
             if (this.duration == 0) {
@@ -37,8 +27,19 @@ cc.Class({
         this.schedule(this.callBack, 1);
     },
 
-    addMoreDuration(time) {
+    addMoreDuration(time = 10) {
         this.duration += time;
+        console.log(this.duration);
+    },
+
+    onLoad () {
+        this.game = this.game.getComponent('Game');
+    },
+
+    start () {
+        this.node.getComponent(cc.Label).string = `倒计时：${this.duration}S`;
+
+        this.upString();
     },
 
     update (dt) {

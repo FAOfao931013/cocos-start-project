@@ -39,6 +39,8 @@ cc.Class({
 
         scoreNode: cc.Node,
 
+        countdown: cc.Node,
+
         star: {
             default: null,
             type: star,
@@ -101,6 +103,10 @@ cc.Class({
         G.common.putBackNode(this, node);
     },
 
+    putBackClock(node = this.newClock) {
+        G.common.putBackNode(this, node);
+    },
+
     spawnNewClock() {
         const newClock = this.spawnCollection(this.clock);
         
@@ -110,7 +116,7 @@ cc.Class({
 
         newClock.setPosition(cc.p(x, y));
 
-        newClock.getComponent('Clock').collectionGroup = this;        
+        newClock.getComponent('Clock').collectionGroup = this;
 
         this.newClock = newClock;
     },
@@ -121,6 +127,7 @@ cc.Class({
         G.common.initPool(this, this.gift);
 
         this.scoreNode = this.scoreNode.getComponent('Score');
+        this.countdown = this.countdown.getComponent('Countdown');
     },
 
     // update: function (dt) {
