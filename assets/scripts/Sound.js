@@ -1,3 +1,4 @@
+/*eslint-disable */
 cc.Class({
     extends: cc.Component,
 
@@ -21,17 +22,15 @@ cc.Class({
     },
 
     playScoreAudio() {
-        // 调用跳跃音效
+        // 调用得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
 
-    // use this for initialization
-    onLoad: function () {
+    onLoad() {
 
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    // update(dt) {
 
     // },
 });

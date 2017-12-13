@@ -29,7 +29,6 @@ cc.Class({
 
     addMoreDuration(time = 10) {
         this.duration += time;
-        console.log(this.duration);
     },
 
     onLoad () {

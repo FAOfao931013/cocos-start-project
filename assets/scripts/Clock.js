@@ -19,9 +19,9 @@ cc.Class({
 
     getPlayerDistance() {
         //根据 player 节点位置判断距离
-        var playerPos = this.collectionGroup.player.getPosition();
+        const playerPos = this.collectionGroup.player.getPosition();
         //根据两点位置计算两点之间距离
-        var dist = cc.pDistance(this.node.position, playerPos);
+        const dist = cc.pDistance(this.node.position, playerPos);
         return dist;
     },
 
