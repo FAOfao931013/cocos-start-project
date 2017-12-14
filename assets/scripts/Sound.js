@@ -14,6 +14,12 @@ cc.Class({
             default: null,
             url: cc.AudioClip
         },
+
+        //加时器音效资源
+        clockAudio: {
+            default: null,
+            url: cc.AudioClip
+        },
     },
 
     playJumpSound() {
@@ -24,6 +30,11 @@ cc.Class({
     playScoreAudio() {
         // 调用得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
+    },
+
+    playClockAudio() {
+        // 调用加时器音效
+        cc.audioEngine.playEffect(this.clockAudio, false);
     },
 
     onLoad() {

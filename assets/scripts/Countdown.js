@@ -8,7 +8,9 @@ cc.Class({
             type: cc.Integer
         },
 
-        game: cc.Node
+        game: cc.Node,
+
+        sound: cc.Node,
     },
 
     upString() {
@@ -28,6 +30,7 @@ cc.Class({
     },
 
     addMoreDuration(time = 10) {
+        this.sound.getComponent('Sound').playClockAudio();        
         this.duration += time;
     },
 

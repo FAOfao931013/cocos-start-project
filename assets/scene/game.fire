@@ -401,6 +401,9 @@
     },
     "scoreAudio": {
       "__uuid__": "55d110b9-bab6-4d9d-9416-03e46904fa35"
+    },
+    "clockAudio": {
+      "__uuid__": "6e501af5-de86-4ddc-9e95-07461336e6c4"
     }
   },
   {
@@ -731,6 +734,9 @@
     "duration": 5,
     "game": {
       "__id__": 21
+    },
+    "sound": {
+      "__id__": 9
     }
   },
   {
