@@ -731,12 +731,15 @@
       "__id__": 17
     },
     "_enabled": true,
-    "duration": 5,
+    "duration": 10,
     "game": {
       "__id__": 21
     },
     "sound": {
       "__id__": 9
+    },
+    "collectionGroup": {
+      "__id__": 15
     }
   },
   {
@@ -820,6 +823,9 @@
     },
     "collectionGroup": {
       "__id__": 15
+    },
+    "countdown": {
+      "__id__": 17
     }
   },
   {

@@ -34,6 +34,9 @@ cc.Class({
         scoreboard: cc.Node,
 
         collectionGroup: cc.Node,
+
+        //倒计时节点
+        countdown: cc.Node,
     },
 
     gameOver() {
@@ -56,8 +59,8 @@ cc.Class({
 
     onLoad() {
         this.collectionGroup.getComponent('CollectionGroup').spawnNewStar();
-
-        this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();            
+        
+        this.countdown = this.countdown.getComponent('Countdown');
     },
 
     start() {
