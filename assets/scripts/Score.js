@@ -10,10 +10,6 @@ cc.Class({
         score: 0
     },
 
-    // init(game) {
-    //     this.game = game;
-    // },
-
     gainScore() {
         this.score += 1;
         //获得自身的Label组件
@@ -26,13 +22,11 @@ cc.Class({
         this.sound.getComponent('Sound').playScoreAudio();
     },
 
-    // use this for initialization
     onLoad() {
 
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    // update(dt) {
 
     // },
 });
