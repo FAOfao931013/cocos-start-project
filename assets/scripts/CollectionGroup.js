@@ -2,17 +2,17 @@
 const star = cc.Class({
     name: 'star',
     properties: {
-        name: '',
+        name: 'star',
         prefab: cc.Prefab,
         poolAmount: 0,
         duration: 0,
     }
 });
 
-const gift = cc.Class({
-    name: 'gift',
+const clock = cc.Class({
+    name: 'clock',
     properties: {
-        name: '',
+        name: 'clock',
         prefab: cc.Prefab,
         poolAmount: 0,
         duration: 0,
@@ -29,15 +29,17 @@ cc.Class({
 
         scoreNode: cc.Node,
 
+        countdown: cc.Node,
+
         star: {
             default: null,
             type: star,
         },
 
-        gift: {
+        clock: {
             default: null,
-            type: gift,
-        }
+            type: clock,
+        },
     }),
 
     gainScore() {
@@ -86,14 +88,33 @@ cc.Class({
         G.common.putBackNode(this, node);
     },
 
-    onLoad() {
-        G.common.initPool(this, this.star);
-        G.common.initPool(this, this.gift);
-
-        this.scoreNode = this.scoreNode.getComponent('Score');
+    putBackClock(node = this.newClock) {
+        G.common.putBackNode(this, node);
     },
 
-    // update: function (dt) {
+    spawnNewClock() {
+        const newClock = this.spawnCollection(this.clock);
+        
+        const y = this.canvas.height / 2;
+
+        const x = cc.randomMinus1To1() * (this.canvas.width / 2 - newClock.width / 2);
+
+        newClock.setPosition(cc.p(x, y));
+
+        newClock.getComponent('Clock').collectionGroup = this;
+
+        this.newClock = newClock;
+    },
+
+    onLoad() {
+        G.common.initPool(this, this.star);
+        G.common.initPool(this, this.clock);
+
+        this.scoreNode = this.scoreNode.getComponent('Score');
+        this.countdown = this.countdown.getComponent('Countdown');
+    },
+
+    // update(dt) {
 
     // },
 });

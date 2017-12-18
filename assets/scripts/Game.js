@@ -15,9 +15,6 @@ cc.Class({
             type: cc.Prefab
         },
 
-        //星星产生后的消失时间
-        maxStarDuration: 0,
-
         //player 节点，用于获取主角弹跳的高度，和控制主角行动开关
         player: {
             default: null,
@@ -34,6 +31,9 @@ cc.Class({
         scoreboard: cc.Node,
 
         collectionGroup: cc.Node,
+
+        //倒计时节点
+        countdown: cc.Node,
     },
 
     gameOver() {
@@ -41,13 +41,9 @@ cc.Class({
         this.player.stopAllActions(); 
         this.player.getComponent('Player').removeKeyboardListener();
         this.player.getComponent('Player').hide();
-
-        //游戏结束标识
-        this.over = true;
         
         this.scoreboard.getComponent('Final').moveToCenter();
         this.collectionGroup.getComponent('CollectionGroup').putBackStar();
-        
     },
 
     restart() {
@@ -55,20 +51,14 @@ cc.Class({
     },
 
     onLoad() {
-        this.collectionGroup.getComponent('CollectionGroup').spawnNewStar();
+        this.countdown = this.countdown.getComponent('Countdown');
     },
 
     start() {
-        //初始化计时器
-        this.timer = 0;
-        this.starDuration = 0;
-        this.over = false;
+        this.collectionGroup.getComponent('CollectionGroup').spawnNewStar();
     },
 
     update(dt) {
-        //防止重复失败
-        if (this.over) {
-            return;
-        }
+
     },
 });

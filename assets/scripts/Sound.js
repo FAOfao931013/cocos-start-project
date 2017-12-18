@@ -1,3 +1,4 @@
+/*eslint-disable */
 cc.Class({
     extends: cc.Component,
 
@@ -13,6 +14,12 @@ cc.Class({
             default: null,
             url: cc.AudioClip
         },
+
+        //加时器音效资源
+        clockAudio: {
+            default: null,
+            url: cc.AudioClip
+        },
     },
 
     playJumpSound() {
@@ -21,17 +28,20 @@ cc.Class({
     },
 
     playScoreAudio() {
-        // 调用跳跃音效
+        // 调用得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
 
-    // use this for initialization
-    onLoad: function () {
+    playClockAudio() {
+        // 调用加时器音效
+        cc.audioEngine.playEffect(this.clockAudio, false);
+    },
+
+    onLoad() {
 
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    // update(dt) {
 
     // },
 });

@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Gift",
+    "_name": "clock",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -40,12 +40,12 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 1
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 65,
-      "height": 69
+      "width": 60,
+      "height": 66
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -53,8 +53,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 489,
-      "y": 358
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -72,7 +72,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "011ae1bd-b739-465e-af66-32df8aea7899"
+      "__uuid__": "756994cd-9845-4416-8435-2f038da29c14"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -90,14 +90,16 @@
     "_atlas": null
   },
   {
-    "__type__": "c23cd852YJIPpx4Wd7qDBL2",
+    "__type__": "cd55bwO3v1PtrYgmoQHVEd1",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "pickRadius": 60
+    "pickRadius": 60,
+    "accel": 300,
+    "time": 0
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -105,9 +107,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "6380d6e3-76fd-4066-b2f7-8756073cfcd3"
     },
-    "fileId": "41UxBdzvlD7rC38rMvH474",
+    "fileId": "0epp1Sf/VDuZ3Uc5f3tlsM",
     "sync": false
   }
 ]
