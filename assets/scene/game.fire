@@ -811,7 +811,6 @@
     "giftPrefab": {
       "__uuid__": "0a111f8f-36c4-4520-82df-b1767c7b6773"
     },
-    "maxStarDuration": 5,
     "player": {
       "__id__": 12
     },

@@ -41,7 +41,7 @@ cc.Class({
 
     update (dt) {
         this.node.y -= this.accel * dt * dt * 10 / 2;
-        this.accel = this.accel + 5;
+        this.accel = this.accel + 3;
 
         if (this.getPlayerDistance() < this.pickRadius) {
             // 调用收集行为
