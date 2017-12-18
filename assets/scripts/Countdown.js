@@ -19,19 +19,20 @@ cc.Class({
 
     downNewClock() {
         const score = this.scoreNode.score;
-        if (score > 0 && score < 20) {
+
+        if (score > 0 && score <= 20) {
             if (this.duration % 10 == 0) {
                 this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
             }
         }
 
-        if (score > 20 && score < 40) {
+        if (score > 20 && score <= 40) {
             if (this.duration % 12 == 0) {
                 this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
             }
         }
 
-        if (score > 40 && score < 60) {
+        if (score > 40 && score <= 60) {
             if (this.duration % 15 == 0) {
                 this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
             }
