@@ -19,16 +19,6 @@ const clock = cc.Class({
     }
 });
 
-const gift = cc.Class({
-    name: 'gift',
-    properties: {
-        name: 'gift',
-        prefab: cc.Prefab,
-        poolAmount: 0,
-        duration: 0,
-    }
-});
-
 cc.Class({
     extends: cc.Component,
 
@@ -50,11 +40,6 @@ cc.Class({
             default: null,
             type: clock,
         },
-
-        gift: {
-            default: null,
-            type: gift,
-        }
     }),
 
     gainScore() {
@@ -124,13 +109,12 @@ cc.Class({
     onLoad() {
         G.common.initPool(this, this.star);
         G.common.initPool(this, this.clock);
-        G.common.initPool(this, this.gift);
 
         this.scoreNode = this.scoreNode.getComponent('Score');
         this.countdown = this.countdown.getComponent('Countdown');
     },
 
-    // update: function (dt) {
+    // update(dt) {
 
     // },
 });
