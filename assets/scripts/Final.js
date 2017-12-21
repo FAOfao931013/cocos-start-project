@@ -31,29 +31,27 @@ cc.Class({
                 result.push(arr[num]);
                 i++;
             }
-
-            if (i == count) {
-                return result;
-            }
         }
+
+        return result;
     },
 
     //打开礼物1
     openGift1() {
         cc.find('gifts/gift1', this.node).active = false;
-        cc.find('giftText/text1', this.node).getComponent(cc.Label).string = this.giftsArr[0];
+        cc.find('giftsText/text1', this.node).getComponent(cc.Label).string = this.giftsArr[0];
     },
 
     //打开礼物2
     openGift2() {
         cc.find('gifts/gift2', this.node).active = false;
-        cc.find('giftText/text2', this.node).getComponent(cc.Label).string = this.giftsArr[1];        
+        cc.find('giftsText/text2', this.node).getComponent(cc.Label).string = this.giftsArr[1];        
     },
 
     //打开礼物3
     openGift3() {
         cc.find('gifts/gift3', this.node).active = false;
-        cc.find('giftText/text3', this.node).getComponent(cc.Label).string = this.giftsArr[2];        
+        cc.find('giftsText/text3', this.node).getComponent(cc.Label).string = this.giftsArr[2];        
     },
 
     //生成礼物处理函数
