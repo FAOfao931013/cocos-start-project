@@ -28,15 +28,11 @@ cc.Class({
     onPicked() {
         this.backNode();
 
-        this.collectionGroup.countdown.addMoreDuration();
+        this.collectionGroup.countdown.addMoreDuration(this.time);
     },
 
     onLoad () {
 
-    },
-
-    start () {
-        
     },
 
     update (dt) {

@@ -1,3 +1,4 @@
+/*eslint-disable */
 cc.Class({
     extends: cc.Component,
 
@@ -17,12 +18,11 @@ cc.Class({
         this.explainWrap.active = false;
     },
 
-    onLoad: function () {
+    onLoad() {
 
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    // update(dt) {
 
     // },
 });

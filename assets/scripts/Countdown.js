@@ -22,25 +22,25 @@ cc.Class({
 
         if (score > 0 && score <= 20) {
             if (this.duration % 10 == 0) {
-                this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
+                this.collectionGroup.spawnNewClock();
             }
         }
 
         if (score > 20 && score <= 40) {
             if (this.duration % 12 == 0) {
-                this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
+                this.collectionGroup.spawnNewClock();
             }
         }
 
         if (score > 40 && score <= 60) {
             if (this.duration % 15 == 0) {
-                this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
+                this.collectionGroup.spawnNewClock();
             }
         }
 
         if (score > 60) {
             if (this.duration % 20 == 0) {
-                this.collectionGroup.getComponent('CollectionGroup').spawnNewClock();
+                this.collectionGroup.spawnNewClock();
             }
         }
     },
@@ -64,13 +64,15 @@ cc.Class({
     },
 
     addMoreDuration(time = 10) {
-        this.sound.getComponent('Sound').playClockAudio();        
+        this.sound.playClockAudio();        
         this.duration += time;
     },
 
     onLoad () {
         this.game = this.game.getComponent('Game');
+        this.sound = this.sound.getComponent('Sound');
         this.scoreNode = this.scoreNode.getComponent('Score');
+        this.collectionGroup = this.collectionGroup.getComponent('CollectionGroup');
     },
 
     start () {
