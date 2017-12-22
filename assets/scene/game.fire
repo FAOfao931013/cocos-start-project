@@ -728,7 +728,7 @@
       "__id__": 17
     },
     "_enabled": true,
-    "duration": 10,
+    "duration": 60,
     "game": {
       "__id__": 21
     },
@@ -1692,7 +1692,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 46
@@ -1865,7 +1865,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 51
@@ -2009,7 +2009,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 55
@@ -2569,7 +2569,7 @@
     "prefab": {
       "__uuid__": "ff0e495d-e160-4b9e-a82f-a556ed5417bd"
     },
-    "poolAmount": 1,
+    "poolAmount": 3,
     "duration": 0
   },
   {
@@ -2578,7 +2578,7 @@
     "prefab": {
       "__uuid__": "6380d6e3-76fd-4066-b2f7-8756073cfcd3"
     },
-    "poolAmount": 5,
+    "poolAmount": 3,
     "duration": 0
   },
   {

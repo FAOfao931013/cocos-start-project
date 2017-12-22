@@ -19,11 +19,11 @@ cc.Class({
     },
 
     playScoreAudio() {
-        this.sound.getComponent('Sound').playScoreAudio();
+        this.sound.playScoreAudio();
     },
 
     onLoad() {
-
+        this.sound = this.sound.getComponent('Sound');
     },
 
     // update(dt) {

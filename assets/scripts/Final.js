@@ -100,6 +100,10 @@ cc.Class({
             result = this.getArrCount(gifts3, 3);
         }
 
+        cc.find('gifts/gift1', this.node).active = true;
+        cc.find('gifts/gift2', this.node).active = true;
+        cc.find('gifts/gift3', this.node).active = true;
+
         this.giftsArr = result;
     },
 
@@ -118,7 +122,7 @@ cc.Class({
 
     //显示得分
     changeFinalScore() {
-        this.finalScore.getComponent(cc.Label).string = '最终得分: ' + this.scoreNode.score;
+        this.finalScore.getComponent(cc.Label).string = '收集到星星数: ' + this.scoreNode.score + '颗';
     },
 
     onLoad() {
