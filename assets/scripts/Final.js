@@ -68,35 +68,35 @@ cc.Class({
             result = this.getArrCount(gifts1, 3);
         }
 
-        if (score > 20 && score <= 40) {
+        if (score > 20 && score <= 30) {
             const res1 = this.getArrCount(gifts1, 2);
             const res2 = this.getArrCount(gifts2, 1);
             
             result = [...res1, ...res2];
         }
 
-        if (score > 40 && score < 60) {
+        if (score > 30 && score <= 45) {
             const res1 = this.getArrCount(gifts1, 1);
             const res2 = this.getArrCount(gifts2, 2);
 
             result = [...res1, ...res2];
         }
 
-        if (score > 60 && score < 80) {
+        if (score > 45 && score <= 70) {
             const res1 = this.getArrCount(gifts2, 2);
             const res2 = this.getArrCount(gifts3, 1);
 
             result = [...res1, ...res2];
         }
 
-        if (score > 80 && score < 100) {
+        if (score > 70 && score < 100) {
             const res1 = this.getArrCount(gifts2, 1);
             const res2 = this.getArrCount(gifts3, 2);
 
             result = [...res1, ...res2];
         }
 
-        if (score > 100) {
+        if (score >= 100) {
             result = this.getArrCount(gifts3, 3);
         }
 
