@@ -82,14 +82,14 @@ cc.Class({
             result = [...res1, ...res2];
         }
 
-        if (score > 40 && score <= 70) {
+        if (score > 40 && score <= 60) {
             const res1 = this.getArrCount(gifts2, 2);
             const res2 = this.getArrCount(gifts3, 1);
 
             result = [...res1, ...res2];
         }
 
-        if (score > 70 && score < 100) {
+        if (score > 60 && score < 100) {
             const res1 = this.getArrCount(gifts2, 1);
             const res2 = this.getArrCount(gifts3, 2);
 
